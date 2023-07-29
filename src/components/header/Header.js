@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useHistory, useNavigate } from "react-router-dom";
+import { CryptoState } from "../../CryptoContext";
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -33,9 +34,8 @@ const darkTheme = createTheme({
 
 const Header = () => {
   const classes = useStyles();
-
   const navigate = useNavigate();
-
+  const { currency, setCurrency } = CryptoState();
   const titleClickHandler = () => {
     navigate("/");
   };
@@ -55,11 +55,11 @@ const Header = () => {
             <Select
               variant="outlined"
               style={{ width: 100, height: 40, marginRight: 15 }}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
             >
-              <MenuItem value={"USD"} selected={true}>
-                USD
-              </MenuItem>
-              <MenuItem value={"IR"}>IR</MenuItem>
+              <MenuItem value={"USD"}>USD</MenuItem>
+              <MenuItem value={"IRR"}>IRR</MenuItem>
             </Select>
           </Toolbar>
         </Container>
