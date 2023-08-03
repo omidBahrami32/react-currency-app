@@ -10,7 +10,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import React from "react";
-import { useHistory, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CryptoState } from "../../CryptoContext";
 
 const useStyles = makeStyles(() => ({
