@@ -3045,11 +3045,13 @@ const CoinsTable = () => {
   };
 
   useEffect(() => {
-    // fetchCoins();
-    setCoins(temp);
+    fetchCoins();
   }, [currency]);
 
   const searchHandler = () => {
+    if (!search) {
+      return coins;
+    }
     return coins.filter((coin) => {
       return (
         coin.name.toLowerCase().includes(search) ||
